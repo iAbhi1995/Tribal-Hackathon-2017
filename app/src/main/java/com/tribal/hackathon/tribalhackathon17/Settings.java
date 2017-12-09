@@ -14,8 +14,10 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.tribal.hackathon.tribalhackathon17.Helper.BottomNavigationViewHelper;
 
@@ -26,6 +28,7 @@ public class Settings extends AppCompatActivity {
     RadioGroup radiolanguagegroup;
     RadioButton radioButton;
     Button save;
+    View view ;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -65,6 +68,7 @@ public class Settings extends AppCompatActivity {
         BottomNavigationViewHelper.disableShiftMode(navigation);
 
         languagelistener();
+        view = (LinearLayout)findViewById(R.id.container);
 
     }
 
@@ -72,6 +76,7 @@ public class Settings extends AppCompatActivity {
     {
         radiolanguagegroup = (RadioGroup)findViewById(R.id.radioLanguage);
         save = (Button) findViewById(R.id.save);
+
         save.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -79,21 +84,23 @@ public class Settings extends AppCompatActivity {
 
                 // get selected radio button from radioGroup
                 int selectedId = radiolanguagegroup.getCheckedRadioButtonId();
-                Log.d("ayush", String.valueOf(selectedId));
+                //Log.d("ayush", String.valueOf(selectedId));
                 // find the radiobutton by returned id
                 radioButton = (RadioButton) findViewById(selectedId);
                 if(radioButton==(RadioButton)findViewById(R.id.englishButton)) //English
                 {
-                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "en").commit();
-                        setLangRecreate("en");
+                    Toast.makeText(getApplicationContext(),"Language Changed Successfully",
+                    Toast.LENGTH_SHORT).show();
+                    PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "en").commit();
+                    setLangRecreate("en");
                 }
                 else
                 {
-                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "hi").commit();
-                        setLangRecreate("hi");
+                    Toast.makeText(getApplicationContext(),"हिंदी भाषा को सफलतापूर्वक चुना |",
+                            Toast.LENGTH_SHORT).show();
+                    PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "hi").commit();
+                    setLangRecreate("hi");
                 }
-                Snackbar.make(findViewById(R.id.container),"Language Changed Successfully",
-                        Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
     }
