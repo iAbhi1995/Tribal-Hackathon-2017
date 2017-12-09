@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ट्राइबल हैकथॉन</string>
+    <string name="title_account">खाता</string>
+    <string name="title_home">होम</string>
+    <string name="title_scheme">योजनाओं</string>
+    <string name="title_settings">सेटिंग्स</string>
+    <string name="change">चेंज</string>
+    <string name="english">इंग्लिश</string>
+    <string name="hindi">हिंदी</string>
+    <string name="language">भाषा</string>
+</resources>
