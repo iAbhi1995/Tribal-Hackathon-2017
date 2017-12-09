@@ -3,14 +3,17 @@ package com.tribal.hackathon.tribalhackathon17;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.tribal.hackathon.tribalhackathon17.Fragment.swipe_image;
 import com.tribal.hackathon.tribalhackathon17.Helper.BottomNavigationViewHelper;
 
 import java.util.Locale;
@@ -18,6 +21,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
+    Intent intent;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -26,17 +30,16 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                    intent = new Intent(MainActivity.this,MainActivity.class);
+                    startActivity(intent);
                     return true;
                 case R.id.navigation_scheme:
-                    mTextMessage.setText(R.string.title_scheme);
                     return true;
                 case R.id.navigation_account:
-                    mTextMessage.setText(R.string.title_account);
                     return true;
                 case R.id.navigation_settings:
-                    Intent intent = new Intent(MainActivity.this,Settings.class);
-                    startActivity(intent);;
+                    intent = new Intent(MainActivity.this,Settings.class);
+                    startActivity(intent);
                     return true;
             }
             return false;
@@ -49,8 +52,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle(R.string.app_name);
-
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         BottomNavigationViewHelper.disableShiftMode(navigation);
@@ -66,6 +67,17 @@ public class MainActivity extends AppCompatActivity {
             getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         }
 
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                FragmentTransaction top_fragment = getSupportFragmentManager().beginTransaction();
+                swipe_image frag = new swipe_image();
+                top_fragment.replace(R.id.top_placeholder,frag);
+                top_fragment.commit();
+            }
+        });
+
     }
 
 }
+
