@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.tribal.hackathon.tribalhackathon17.Helper.BottomNavigationViewHelper;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
                     return true;
+                case R.id.navigation_account:
+                    mTextMessage.setText(R.string.title_notifications);
+                    return true;
             }
             return false;
         }
@@ -40,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        BottomNavigationViewHelper.disableShiftMode(navigation);
     }
 
 }
