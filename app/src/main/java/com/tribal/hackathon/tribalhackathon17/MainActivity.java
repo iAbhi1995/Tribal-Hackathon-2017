@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.mindorks.placeholderview.ExpandablePlaceHolderView;
@@ -23,13 +24,15 @@ import com.tribal.hackathon.tribalhackathon17.NewsFeed.HeadingView;
 import com.tribal.hackathon.tribalhackathon17.NewsFeed.Info;
 import com.tribal.hackathon.tribalhackathon17.NewsFeed.InfoView;
 import com.tribal.hackathon.tribalhackathon17.NewsFeed.Utils;
+import com.tribal.hackathon.tribalhackathon17.Schemes.View.BottomNavigationSchemeActivity;
+import com.tribal.hackathon.tribalhackathon17.Schemes.View.SearchResult.SearchResultActivity;
 
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
     Intent intent;
+    private TextView mTextMessage;
     private ExpandablePlaceHolderView mExpandableView;
     private Context mContext;
 
@@ -40,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    intent = new Intent(MainActivity.this,MainActivity.class);
-                    startActivity(intent);
                     return true;
                 case R.id.navigation_scheme:
+                    intent = new Intent(MainActivity.this, BottomNavigationSchemeActivity.class);
+                    startActivity(intent);
                     return true;
                 case R.id.navigation_account:
                     return true;
@@ -99,5 +102,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-}
+    public void loadaccnt(View v) {
+        Intent i = new Intent(this, BottomNavigationSchemeActivity.class);
+        startActivity(i);
+    }
 
+    public void loadsearchresult(View v) {
+        Intent i = new Intent(this, SearchResultActivity.class);
+        startActivity(i);
+    }
+}
