@@ -12,9 +12,31 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <provider
+            android:name=".helper.SchemeContentProvider"
+            android:authorities="com.tribal.hackathon.tribalhackathon17.helper.SchemeContentProvider" />
+
+        <activity
+            android:name=".Schemes.View.BottomNavigationSchemeActivity"
+            android:label="@string/title_activity_scheme"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+            <!-- TODO: Add the correct activity name to show the final results -->
+        </activity>
+        <activity
+            android:name=".Schemes.View.SearchResult.SearchResultActivity"
+            android:label="@string/title_activity_search_result"
+            android:theme="@style/AppTheme.NoActionBar">
+
         </activity>
     </application>
 
