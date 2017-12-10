@@ -6,37 +6,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.tribal.hackathon.tribalhackathon17.MainActivity">
+    tools:context="com.tribal.hackathon.tribalhackathon17.Activity.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <FrameLayout
-            android:id="@+id/top_placeholder"
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:layout_margin="5dp" />
-
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            android:layout_margin="3dp"
+            android:id="@+id/cardView">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <FrameLayout
+                    android:id="@+id/top_placeholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/top_placeholder">
+            android:layout_below="@id/cardView">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="3dp"
-                    android:text="@string/Introduction"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    tools:textStyle="bold|italic" />
-
+                    android:orientation="vertical"
+                    android:background="@color/background_color"
+                    xmlns:android="http://schemas.android.com/apk/res/android">
+                    <com.mindorks.placeholderview.ExpandablePlaceHolderView
+                        android:id="@+id/expandableView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="vertical"/>
+                </LinearLayout>
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="wrap_content"
@@ -62,3 +72,4 @@
             app:menu="@menu/navigation" />
     </RelativeLayout>
 </LinearLayout>
+

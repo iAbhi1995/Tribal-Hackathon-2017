@@ -1,5 +1,6 @@
-package com.tribal.hackathon.tribalhackathon17;
+package com.tribal.hackathon.tribalhackathon17.Activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -15,8 +16,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.mindorks.placeholderview.ExpandablePlaceHolderView;
 import com.tribal.hackathon.tribalhackathon17.Fragment.swipe_image;
 import com.tribal.hackathon.tribalhackathon17.Helper.BottomNavigationViewHelper;
+import com.tribal.hackathon.tribalhackathon17.Helper.ConnectivityReceiver;
+import com.tribal.hackathon.tribalhackathon17.NewsFeed.Feed;
+import com.tribal.hackathon.tribalhackathon17.NewsFeed.HeadingView;
+import com.tribal.hackathon.tribalhackathon17.NewsFeed.Info;
+import com.tribal.hackathon.tribalhackathon17.NewsFeed.InfoView;
+import com.tribal.hackathon.tribalhackathon17.NewsFeed.Utils;
+import com.tribal.hackathon.tribalhackathon17.R;
 import com.tribal.hackathon.tribalhackathon17.Schemes.View.BottomNavigationSchemeActivity;
 import com.tribal.hackathon.tribalhackathon17.Schemes.View.SearchResult.SearchResultActivity;
 
@@ -26,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
     Intent intent;
     private TextView mTextMessage;
+    private ExpandablePlaceHolderView mExpandableView;
+    private Context mContext;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -39,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                     return true;
                 case R.id.navigation_account:
+                    intent = new Intent(MainActivity.this, AccountActivity.class);
+                    startActivity(intent);
                     return true;
                 case R.id.navigation_settings:
                     intent = new Intent(MainActivity.this,Settings.class);
@@ -80,6 +94,15 @@ public class MainActivity extends AppCompatActivity {
                 top_fragment.commit();
             }
         });
+
+        mContext = this.getApplicationContext();
+        mExpandableView = (ExpandablePlaceHolderView)findViewById(R.id.expandableView);
+        for(Feed feed : Utils.loadFeeds(this.getApplicationContext())){
+            mExpandableView.addView(new HeadingView(mContext, feed.getHeading()));
+            for(Info info : feed.getInfoList()){
+                mExpandableView.addView(new InfoView(mContext, info));
+            }
+        }
 
     }
 

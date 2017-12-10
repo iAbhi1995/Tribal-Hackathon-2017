@@ -1,4 +1,4 @@
-package com.tribal.hackathon.tribalhackathon17;
+package com.tribal.hackathon.tribalhackathon17.Activity;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -6,11 +6,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +17,8 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.tribal.hackathon.tribalhackathon17.Helper.BottomNavigationViewHelper;
+import com.tribal.hackathon.tribalhackathon17.R;
+import com.tribal.hackathon.tribalhackathon17.Schemes.View.BottomNavigationSchemeActivity;
 
 import java.util.Locale;
 
@@ -42,8 +41,12 @@ public class Settings extends AppCompatActivity {
                     startActivity(intent);
                     return true;
                 case R.id.navigation_scheme:
+                    intent = new Intent(Settings.this,BottomNavigationSchemeActivity.class);
+                    startActivity(intent);
                     return true;
                 case R.id.navigation_account:
+                    intent = new Intent(Settings.this,AccountActivity.class);
+                    startActivity(intent);
                     return true;
                 case R.id.navigation_settings:
                     intent = new Intent(Settings.this,Settings.class);
