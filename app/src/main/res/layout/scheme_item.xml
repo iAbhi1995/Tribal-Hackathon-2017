@@ -11,14 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        app:cardBackgroundColor="@color/transparent_white"
         android:layout_margin="3dp"
-        android:backgroundTint="@color/white"
         android:elevation="3dp"
         app:cardCornerRadius="6dp">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="@color/background_color">
+            android:layout_height="match_parent">
 
             <WebView
                 android:id="@+id/webView"
