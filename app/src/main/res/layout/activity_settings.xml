@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.tribal.hackathon.tribalhackathon17.Settings">
+    tools:context="com.tribal.hackathon.tribalhackathon17.Activity.Settings">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <RelativeLayout
-    tools:context="com.tribal.hackathon.tribalhackathon17.MainActivity"
+    tools:context="com.tribal.hackathon.tribalhackathon17.Activity.MainActivity"
     android:fitsSystemWindows="true"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
