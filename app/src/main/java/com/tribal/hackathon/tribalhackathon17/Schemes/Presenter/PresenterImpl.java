@@ -3,11 +3,11 @@ package com.tribal.hackathon.tribalhackathon17.Schemes.Presenter;
 import android.content.Context;
 import android.util.Log;
 
+import com.tribal.hackathon.tribalhackathon17.Helper.DataBaseHandler;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Data;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.SchemeProvider;
 import com.tribal.hackathon.tribalhackathon17.Schemes.SchemeCallback;
 import com.tribal.hackathon.tribalhackathon17.Schemes.View.SchemeView;
-import com.tribal.hackathon.tribalhackathon17.helper.DataBaseHandler;
 
 
 public class PresenterImpl implements SchemePresenter {

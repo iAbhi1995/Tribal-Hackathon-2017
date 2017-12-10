@@ -21,33 +21,21 @@
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_below="@id/top_placeholder"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top_placeholder">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Introduction"
                     android:padding="3dp"
+                    android:text="@string/Introduction"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     tools:textStyle="bold|italic" />
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/textView"
-                    android:layout_marginStart="42dp"
-                    android:layout_marginTop="124dp"
-                    android:layout_toEndOf="@+id/textView"
-                    android:onClick="loadaccnt"
-                    android:text="Button"
-                    tools:layout_editor_absoluteX="148dp"
-                    tools:layout_editor_absoluteY="153dp" />
 
                 <Button
                     android:id="@+id/button2"
@@ -55,12 +43,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/button"
                     android:layout_below="@+id/button"
+                    android:layout_marginBottom="50dp"
                     android:layout_marginStart="14dp"
                     android:layout_marginTop="96dp"
                     android:onClick="loadsearchresult"
-                    android:text="Button"
-                    tools:layout_editor_absoluteX="79dp"
-                    tools:layout_editor_absoluteY="28dp" />
+                    android:text="Button" />
             </LinearLayout>
         </ScrollView>
 

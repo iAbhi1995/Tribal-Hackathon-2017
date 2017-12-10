@@ -3,10 +3,10 @@ package com.tribal.hackathon.tribalhackathon17.Schemes.Model;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.tribal.hackathon.tribalhackathon17.Helper.Urls;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Api.SchemeApi;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Data;
 import com.tribal.hackathon.tribalhackathon17.Schemes.SchemeCallback;
-import com.tribal.hackathon.tribalhackathon17.helper.Urls;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

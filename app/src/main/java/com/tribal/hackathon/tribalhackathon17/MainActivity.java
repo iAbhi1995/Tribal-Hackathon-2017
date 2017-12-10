@@ -1,16 +1,10 @@
 package com.tribal.hackathon.tribalhackathon17;
 
 import android.content.Intent;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-
-import com.tribal.hackathon.tribalhackathon17.Schemes.View.BottomNavigationSchemeActivity;
-import com.tribal.hackathon.tribalhackathon17.Schemes.View.SearchResult.SearchResultActivity;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -18,18 +12,20 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.tribal.hackathon.tribalhackathon17.Fragment.swipe_image;
 import com.tribal.hackathon.tribalhackathon17.Helper.BottomNavigationViewHelper;
+import com.tribal.hackathon.tribalhackathon17.Schemes.View.BottomNavigationSchemeActivity;
+import com.tribal.hackathon.tribalhackathon17.Schemes.View.SearchResult.SearchResultActivity;
 
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
     Intent intent;
-
+    private TextView mTextMessage;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -37,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    intent = new Intent(MainActivity.this,MainActivity.class);
-                    startActivity(intent);
                     return true;
                 case R.id.navigation_scheme:
+                    intent = new Intent(MainActivity.this, BottomNavigationSchemeActivity.class);
+                    startActivity(intent);
                     return true;
                 case R.id.navigation_account:
                     return true;

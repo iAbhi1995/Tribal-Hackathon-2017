@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tribal.hackathon.tribalhackathon17.Helper.DataBaseHandler;
 import com.tribal.hackathon.tribalhackathon17.R;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Department;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Places;
-import com.tribal.hackathon.tribalhackathon17.helper.DataBaseHandler;
 
 import java.util.List;
 

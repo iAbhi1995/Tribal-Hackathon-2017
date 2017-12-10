@@ -14,11 +14,11 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.tribal.hackathon.tribalhackathon17.Helper.DataBaseHandler;
 import com.tribal.hackathon.tribalhackathon17.R;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.MockSchemeProvider;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Presenter.PresenterImpl;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Presenter.SchemePresenter;
-import com.tribal.hackathon.tribalhackathon17.helper.DataBaseHandler;
 
 public class BottomNavigationSchemeActivity extends AppCompatActivity implements SchemeView {
 

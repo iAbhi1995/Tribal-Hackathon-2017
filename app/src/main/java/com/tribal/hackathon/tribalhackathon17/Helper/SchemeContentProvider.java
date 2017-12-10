@@ -1,4 +1,4 @@
-package com.tribal.hackathon.tribalhackathon17.helper;
+package com.tribal.hackathon.tribalhackathon17.Helper;
 
 import android.app.SearchManager;
 import android.content.ContentProvider;
