@@ -1,6 +1,7 @@
 package com.tribal.hackathon.tribalhackathon17.Schemes.View;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.tribal.hackathon.tribalhackathon17.Helper.DataBaseHandler;
 import com.tribal.hackathon.tribalhackathon17.R;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Department;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Places;
+import com.tribal.hackathon.tribalhackathon17.Schemes.View.SearchResult.SearchResultActivity;
 
 import java.util.List;
 
@@ -39,21 +41,30 @@ public class PlacesDepartmentAdapter extends RecyclerView.Adapter<PlacesDepartme
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
+        Places place = null;
+        Department department = null;
         if (type == 1)//for places
         {
-            Places place = places.get(position);
+            place = places.get(position);
             holder.name.setText(place.getName());
 
         } else//for departments
         {
-            Department department = departments.get(position);
+            department = departments.get(position);
             holder.name.setText(department.getName());
         }
 
+        final Places finalPlace = place;
+        final Department finalDepartment = department;
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(context, SearchResultActivity.class);
+                if (type == 1)
+                    i.putExtra("_id", finalPlace.getId());
+                else
+                    i.putExtra("_id", finalDepartment.getId());
+                context.startActivity(i);
             }
         });
     }

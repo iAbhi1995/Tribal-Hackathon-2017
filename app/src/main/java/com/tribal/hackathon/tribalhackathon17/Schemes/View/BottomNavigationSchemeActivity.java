@@ -34,13 +34,6 @@ public class BottomNavigationSchemeActivity extends AppCompatActivity implements
         setSupportActionBar(toolbar);
         pBar = (ProgressBar) findViewById(R.id.progressBar);
         db = new DataBaseHandler(getApplicationContext());
-        db.addInitialEntries("1", "Abhi");
-        db.addInitialEntries("7", "Abhi1");
-        db.addInitialEntries("6", "Abhi2");
-        db.addInitialEntries("5", "Abhi3");
-        db.addInitialEntries("4", "Abhi4");
-        db.addInitialEntries("3", "Abhi5");
-        db.addInitialEntries("2", "Abhi6");
         presenter = new PresenterImpl(new MockSchemeProvider(), this, this);
         presenter.getScheme();
         setUpViewPager();
@@ -70,8 +63,7 @@ public class BottomNavigationSchemeActivity extends AppCompatActivity implements
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                showMessage("onQueryTextChange " + newText);
-                return true;
+                return false;
             }
         });
         return true;

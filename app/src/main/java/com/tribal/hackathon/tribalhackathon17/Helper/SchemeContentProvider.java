@@ -16,7 +16,7 @@ import java.util.HashMap;
 public class SchemeContentProvider extends ContentProvider {
 
     private static final HashMap<String, String> PROJECTION_MAP = new HashMap<String, String>();
-    private static String AUTHORITY = "com.tribal.hackathon.tribalhackathon17.helper.HostelContentProvider";
+    private static String AUTHORITY = "com.tribal.hackathon.tribalhackathon17.Helper.SchemeContentProvider";
 
     static {
         PROJECTION_MAP.put("_id", "_id");
@@ -73,7 +73,10 @@ public class SchemeContentProvider extends ContentProvider {
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
+        Log.d("abhi", "query is " + selectionArgs[0]);
         builder.setTables(TABLE_NAME);
+        Log.d("abhi", "matcher " + mUriMatcher.match(uri));
+
         switch (mUriMatcher.match(uri)) {
             case SUGGESTIONS:
                 String query = selectionArgs[0];
@@ -81,7 +84,7 @@ public class SchemeContentProvider extends ContentProvider {
                 if (query.equals("")) {
                     return null;
                 }
-                builder.appendWhere("INSTR(UPPER(name),UPPER('" + query + "')) OR INSTR(UPPER(address),UPPER('" + query + "'))");
+                builder.appendWhere("INSTR(UPPER(name),UPPER('" + query + "'))");
                 builder.setProjectionMap(PROJECTION_MAP);
                 break;
         }

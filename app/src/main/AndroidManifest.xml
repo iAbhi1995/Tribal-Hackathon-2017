@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tribal.hackathon.tribalhackathon17">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
@@ -24,20 +25,21 @@
             android:name=".Schemes.View.BottomNavigationSchemeActivity"
             android:label="@string/title_activity_scheme"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-
             <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
+                android:name="android.app.default_searchable"
+                android:value=".Schemes.View.SearchResult.SearchResultActivity" />
             <!-- TODO: Add the correct activity name to show the final results -->
         </activity>
         <activity
             android:name=".Schemes.View.SearchResult.SearchResultActivity"
             android:label="@string/title_activity_search_result"
             android:theme="@style/AppTheme.NoActionBar">
-
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
         </activity>
         <activity
             android:name=".Settings"

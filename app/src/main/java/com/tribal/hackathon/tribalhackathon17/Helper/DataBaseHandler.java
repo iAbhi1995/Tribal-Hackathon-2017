@@ -23,7 +23,6 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     private static final String PLACE_TYPE = "type";
     private static final String TABLE_PLACES = "places";
     private String PLACE_NAME_OR_SCHEME_NAME = "name";
-    private SQLiteDatabase writableDatabase;
     private String TABLE_SCHEME = "scheme";
     private String SCHEME_NAME = "name";
     private String DEPTNAME = "dept";
@@ -38,7 +37,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_INITIAL_TABLE = "CREATE TABLE " + TABLE_INITIAL + "("
-                + UNIQUE_ID + " TEXT ," + PLACE_NAME_OR_SCHEME_NAME + " TEXT)";
+                + UNIQUE_ID + " TEXT," + PLACE_NAME_OR_SCHEME_NAME + " TEXT)";
         db.execSQL(CREATE_INITIAL_TABLE);
         String CREATE_SCHEME_TABLE = "CREATE TABLE " + TABLE_SCHEME + "("
                 + SCH_ID + " TEXT ," + SCHEME_NAME + " TEXT ," + DEPTNAME + " TEXT)";
@@ -60,12 +59,20 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addInitialEntries(String id, String name) {
+    public void addInitialEntries(List<SchemeData> schemes, List<Places> places) {
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(UNIQUE_ID, id);
-        values.put(PLACE_NAME_OR_SCHEME_NAME, name);
-        db.insert(TABLE_INITIAL, null, values);
+        for (int i = 0; i < schemes.size(); i++) {
+            ContentValues values = new ContentValues();
+            values.put(UNIQUE_ID, "S" + schemes.get(i).getId());
+            values.put(PLACE_NAME_OR_SCHEME_NAME, schemes.get(i).getName());
+            db.insert(TABLE_INITIAL, null, values);
+        }
+        for (int i = 0; i < places.size(); i++) {
+            ContentValues values = new ContentValues();
+            values.put(UNIQUE_ID, "P" + places.get(i).getId());
+            values.put(PLACE_NAME_OR_SCHEME_NAME, places.get(i).getName());
+            db.insert(TABLE_INITIAL, null, values);
+        }
         db.close();
     }
 

@@ -29,10 +29,11 @@ public class PresenterImpl implements SchemePresenter {
             public void onSuccess(Data body) {
                 view.showProgressBar(false);
                 if (body.isSuccess()) {
-                    view.setView();
                     db.addSchemes(body.getSchemes());
                     db.addDepartments(body.getDepartments());
                     db.addPlaces(body.getPlaces());
+                    view.setView();
+                    db.addInitialEntries(body.getSchemes(), body.getPlaces());
                     Log.d("abhi", body.getSchemes().size() + " " + body.getDepartments().size() + " " + body.getPlaces().size());
                 } else {
                     view.showMessage(body.getMessage());

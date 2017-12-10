@@ -2,7 +2,7 @@
 <searchable xmlns:android="http://schemas.android.com/apk/res/android"
     android:hint="@string/search_hint"
     android:label="@string/app_name"
-    android:searchSuggestAuthority="com.tribal.hackathon.tribalhackathon17.helper.SchemeContentProvider"
+    android:searchSuggestAuthority="com.tribal.hackathon.tribalhackathon17.Helper.SchemeContentProvider"
     android:searchSuggestIntentAction="android.intent.action.VIEW"
     android:searchSuggestSelection="INSTR(name,'?')"
     android:searchSuggestThreshold="1" /><!--android:searchMode="queryRewriteFromData" />-->
