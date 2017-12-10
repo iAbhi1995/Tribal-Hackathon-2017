@@ -21,10 +21,10 @@ public class SearchResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_result);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        data = getIntent().getStringExtra("_id");
-//        Log.d("abhi", data);
+        //    data = getIntent().getStringExtra("_id");
+        //        Log.d("abhi", data);
         //TOdo: to check appropriate data to decide between 2 or 3 tabs in the search result...
-        data = getIntent().getExtras().toString();
+        //    data = getIntent().getExtras().toString();
         setUpViewPager();
     }
 
