@@ -1,45 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.tribal.hackathon.tribalhackathon17.MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="124dp"
-        android:layout_toEndOf="@+id/textView"
-        android:onClick="loadaccnt"
-        android:text="Button"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="153dp" />
+        <FrameLayout
+            android:id="@+id/top_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_margin="5dp" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/button"
-        android:layout_below="@+id/button"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="96dp"
-        android:onClick="loadsearchresult"
-        android:text="Button"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="28dp" />
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_below="@id/top_placeholder"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
 
-</RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Introduction"
+                    android:padding="3dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    tools:textStyle="bold|italic" />
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="124dp"
+                    android:layout_toEndOf="@+id/textView"
+                    android:onClick="loadaccnt"
+                    android:text="Button"
+                    tools:layout_editor_absoluteX="148dp"
+                    tools:layout_editor_absoluteY="153dp" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/button"
+                    android:layout_below="@+id/button"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="96dp"
+                    android:onClick="loadsearchresult"
+                    android:text="Button"
+                    tools:layout_editor_absoluteX="79dp"
+                    tools:layout_editor_absoluteY="28dp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="bottom"
+            android:background="?android:attr/windowBackground"
+            app:menu="@menu/navigation" />
+    </RelativeLayout>
+</LinearLayout>

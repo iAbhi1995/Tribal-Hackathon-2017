@@ -1,9 +1,18 @@
 <resources>
-    <string name="app_name">TribalHackathon17</string>
-    <string name="title_activity_scheme">SchemeActivity</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">eYojna</string>
+    <string name="title_home">Home</string>
+    <string name="title_scheme">Schemes</string>
+    <string name="title_account">Account</string>
+    <string name="title_settings">Settings</string>
+    <string name="language">Language</string>
+    <string name="change">Change</string>
+    <string name="english">English</string>
+    <string name="hindi">Hindi</string>
+    <string name="Introduction">Chhattisgarh state came into existence on 1st November 2000.The total population of the state (according to Census year 2011) is 255.45 lakhs. The population of Scheduled Tribes is 78.22 lakh, and the population of Scheduled Castes is 32.47 lakh.The concept of tribal sub plan for the development of Scheduled Tribes in the state is in progress. The main tribe is Gond and its sub castes - Madia, Muria, Dorla etc. In addition, there are a large number of Uraon, Kanwar, Binjwar, Bagga, Bhadra, Kamar, Halba, Sewra, Nagasiya, Mazwar, Kharia and Dhanwar tribes. In the state of Chhattisgarh, 5 special backward tribes, Bagga, Kamar, Hill Korba, Birhor, Aboujmadia, are residing. Keeping in view their economic social and regional development, 6 Backward Tribal Development Agency is formed in the state.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_hint">Search for scheme and district..</string>
     <string name="title_activity_search_result">SearchResultActivity</string>
+
+
+
 </resources>
