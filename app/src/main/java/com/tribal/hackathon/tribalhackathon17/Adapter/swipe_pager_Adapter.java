@@ -2,6 +2,7 @@ package com.tribal.hackathon.tribalhackathon17.Adapter;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,12 +40,14 @@ public class swipe_pager_Adapter extends PagerAdapter {
 
         ImageView imageView = (ImageView) itemView.findViewById(R.id.img_pager_item);
         final ProgressBar progressBar = (ProgressBar) itemView.findViewById(R.id.progressbar);
+        App.showProgressBar(progressBar);
         Picasso.with(mContext)
                 .load(mResources[position])
                 .into(imageView, new com.squareup.picasso.Callback() {
 
                     @Override
-                    public void onSuccess() {
+                    public void onSuccess()
+                    {
                         App.hideProgressBar(progressBar);
                     }
 

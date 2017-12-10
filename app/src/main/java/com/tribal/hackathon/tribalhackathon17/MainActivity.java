@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         Configuration config = getBaseContext().getResources().getConfiguration();
 
         String lang = settings.getString("LANG", "");
+        Log.d("Ayush",lang);
         if (! "".equals(lang) && ! config.locale.getLanguage().equals(lang)) {
             Locale locale = new Locale(lang);
             Locale.setDefault(locale);

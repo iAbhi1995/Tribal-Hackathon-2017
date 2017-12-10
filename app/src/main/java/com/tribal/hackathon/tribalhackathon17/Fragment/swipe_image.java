@@ -52,11 +52,11 @@ public class swipe_image extends Fragment implements ViewPager.OnPageChangeListe
         pager_indicator = (LinearLayout) view.findViewById(R.id.viewPagerCountDots);
 
             mImageResources = new String[]{
-                    "http://images.shiksha.com/mediadata/images/1455102832php8CNi5r.jpeg",
-                    "http://images.shiksha.com/mediadata/images/1455102832php8CNi5r.jpeg",
-                    "http://images.shiksha.com/mediadata/images/1455102832php8CNi5r.jpeg",
-                    "http://images.shiksha.com/mediadata/images/1455102832php8CNi5r.jpeg",
-                    "http://images.shiksha.com/mediadata/images/1455102832php8CNi5r.jpeg"
+                    "http://spiceflair.com/wp-content/uploads/2011/10/dancing-tribal-men-and-women2.jpg",
+                    "https://magikindia.com/wp-content/uploads/2015/12/bastar-jagdalpur.jpg",
+                    "http://punjabkesari.com/wp-content/uploads/2017/08/1-360.jpg",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZitB9iVMDHPbGA-gnyhq4v_1pcFgeY8h0RZXMw4Jgkpw7GVLA",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwgFLw4pOF_3OWOZcuKk_0DzeRv8jk-Xyg7tlYXkN-MX32wjnn"
             };
 
         mAdapter = new swipe_pager_Adapter(getActivity(), mImageResources);
@@ -99,7 +99,7 @@ public class swipe_image extends Fragment implements ViewPager.OnPageChangeListe
         dots = new ImageView[dotsCount];
 
         for (int i = 0; i < dotsCount; i++) {
-            dots[i] = new ImageView(getContext());
+            dots[i] = new ImageView(getActivity().getApplicationContext());
             dots[i].setImageDrawable(getResources().getDrawable(R.drawable.nonselecteditem_dot));
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(

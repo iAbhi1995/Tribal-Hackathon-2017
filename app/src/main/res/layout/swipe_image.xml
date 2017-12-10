@@ -3,7 +3,6 @@
     tools:context="com.tribal.hackathon.tribalhackathon17.MainActivity"
     android:fitsSystemWindows="true"
     android:layout_height="match_parent"
-    android:background="#9fecff"
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
