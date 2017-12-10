@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 
 import com.tribal.hackathon.tribalhackathon17.R;
 import com.tribal.hackathon.tribalhackathon17.Schemes.View.PlacesFragment;
@@ -22,14 +21,11 @@ public class SearchResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_result);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        data = getIntent().getStringExtra("scheme_id");
-        Log.d("abhi", data);
+        data = getIntent().getStringExtra("_id");
+//        Log.d("abhi", data);
         //TOdo: to check appropriate data to decide between 2 or 3 tabs in the search result...
-        //data=getIntent().getExtras().toString();
-
-
+        data = getIntent().getExtras().toString();
         setUpViewPager();
-
     }
 
     private void setUpViewPager() {
