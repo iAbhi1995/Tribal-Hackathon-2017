@@ -1,5 +1,6 @@
 package com.tribal.hackathon.tribalhackathon17;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -14,8 +15,14 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.mindorks.placeholderview.ExpandablePlaceHolderView;
 import com.tribal.hackathon.tribalhackathon17.Fragment.swipe_image;
 import com.tribal.hackathon.tribalhackathon17.Helper.BottomNavigationViewHelper;
+import com.tribal.hackathon.tribalhackathon17.NewsFeed.Feed;
+import com.tribal.hackathon.tribalhackathon17.NewsFeed.HeadingView;
+import com.tribal.hackathon.tribalhackathon17.NewsFeed.Info;
+import com.tribal.hackathon.tribalhackathon17.NewsFeed.InfoView;
+import com.tribal.hackathon.tribalhackathon17.NewsFeed.Utils;
 
 import java.util.Locale;
 
@@ -23,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
     Intent intent;
+    private ExpandablePlaceHolderView mExpandableView;
+    private Context mContext;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -78,6 +87,15 @@ public class MainActivity extends AppCompatActivity {
                 top_fragment.commit();
             }
         });
+
+        mContext = this.getApplicationContext();
+        mExpandableView = (ExpandablePlaceHolderView)findViewById(R.id.expandableView);
+        for(Feed feed : Utils.loadFeeds(this.getApplicationContext())){
+            mExpandableView.addView(new HeadingView(mContext, feed.getHeading()));
+            for(Info info : feed.getInfoList()){
+                mExpandableView.addView(new InfoView(mContext, info));
+            }
+        }
 
     }
 
