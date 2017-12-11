@@ -2,14 +2,21 @@ package com.tribal.hackathon.tribalhackathon17.Schemes.View.SearchResult;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 
 import com.tribal.hackathon.tribalhackathon17.Helper.DataBaseHandler;
+import com.tribal.hackathon.tribalhackathon17.Activity.AccountActivity;
+import com.tribal.hackathon.tribalhackathon17.Activity.MainActivity;
+import com.tribal.hackathon.tribalhackathon17.Activity.Settings;
+import com.tribal.hackathon.tribalhackathon17.Helper.BottomNavigationViewHelper;
 import com.tribal.hackathon.tribalhackathon17.R;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Places;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Schemes;
@@ -17,6 +24,7 @@ import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.SearchResult;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.MockSchemeProvider;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Presenter.PresenterImpl;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Presenter.SchemePresenter;
+import com.tribal.hackathon.tribalhackathon17.Schemes.View.BottomNavigationSchemeActivity;
 import com.tribal.hackathon.tribalhackathon17.Schemes.View.PlacesFragment;
 import com.tribal.hackathon.tribalhackathon17.Schemes.View.SectionsPagerAdapter;
 
@@ -28,6 +36,35 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
     private static String url;
     private static String id;
     String data = "1";
+    private Intent intent;
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    intent = new Intent(SearchResultActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    return true;
+                case R.id.navigation_scheme:
+                    intent = new Intent(SearchResultActivity.this, BottomNavigationSchemeActivity.class);
+                    startActivity(intent);
+                    return true;
+                case R.id.navigation_account:
+                    intent = new Intent(SearchResultActivity.this, AccountActivity.class);
+                    startActivity(intent);
+                    return true;
+                case R.id.navigation_settings:
+                    intent = new Intent(SearchResultActivity.this,Settings.class);
+                    startActivity(intent);
+                    return true;
+            }
+            return false;
+        }
+
+    };
+
     private DataBaseHandler db;
     private SchemePresenter presenter;
     @Override
@@ -46,6 +83,9 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
         }
         presenter = new PresenterImpl(new MockSchemeProvider(), this, this);
         presenter.searchByPlace(data.substring(1));
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        BottomNavigationViewHelper.disableShiftMode(navigation);
         setUpViewPager();
         /*if (bundle != null) {
             for (String key : bundle.keySet()) {

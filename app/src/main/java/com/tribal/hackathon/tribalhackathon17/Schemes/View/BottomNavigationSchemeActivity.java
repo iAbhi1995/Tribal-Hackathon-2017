@@ -2,7 +2,11 @@ package com.tribal.hackathon.tribalhackathon17.Schemes.View;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -11,9 +15,14 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.tribal.hackathon.tribalhackathon17.Activity.AccountActivity;
+import com.tribal.hackathon.tribalhackathon17.Activity.MainActivity;
+import com.tribal.hackathon.tribalhackathon17.Activity.Settings;
+import com.tribal.hackathon.tribalhackathon17.Helper.BottomNavigationViewHelper;
 import com.tribal.hackathon.tribalhackathon17.Helper.DataBaseHandler;
 import com.tribal.hackathon.tribalhackathon17.R;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.MockSchemeProvider;
@@ -23,15 +32,52 @@ import com.tribal.hackathon.tribalhackathon17.Schemes.Presenter.SchemePresenter;
 public class BottomNavigationSchemeActivity extends AppCompatActivity implements SchemeView {
 
     ProgressBar pBar;
+    private Intent intent;
     private DataBaseHandler db;
     private SchemePresenter presenter;
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    intent = new Intent(BottomNavigationSchemeActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    return true;
+                case R.id.navigation_scheme:
+                    intent = new Intent(BottomNavigationSchemeActivity.this, BottomNavigationSchemeActivity.class);
+                    startActivity(intent);
+                    return true;
+                case R.id.navigation_account:
+                    intent = new Intent(BottomNavigationSchemeActivity.this, AccountActivity.class);
+                    startActivity(intent);
+                    return true;
+                case R.id.navigation_settings:
+                    intent = new Intent(BottomNavigationSchemeActivity.this,Settings.class);
+                    startActivity(intent);
+                    return true;
+            }
+            return false;
+        }
+
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            getWindow().getDecorView().setLayoutDirection(View.TEXT_ALIGNMENT_CENTER);
+        }
         setContentView(R.layout.activity_scheme);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        BottomNavigationViewHelper.disableShiftMode(navigation);
+
         pBar = (ProgressBar) findViewById(R.id.progressBar);
         db = new DataBaseHandler(getApplicationContext());
         presenter = new PresenterImpl(new MockSchemeProvider(), this, this);

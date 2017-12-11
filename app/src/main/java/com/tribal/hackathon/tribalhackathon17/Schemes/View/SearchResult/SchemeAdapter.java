@@ -2,10 +2,11 @@ package com.tribal.hackathon.tribalhackathon17.Schemes.View.SearchResult;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.tribal.hackathon.tribalhackathon17.Helper.DataBaseHandler;
@@ -37,6 +38,10 @@ public class SchemeAdapter extends RecyclerView.Adapter<SchemeAdapter.MyViewHold
         Schemes.SchemeData data = schemeList.get(position);
         holder.name.setText(data.getName());
         holder.dept.setText(data.getDept_name());
+        if(holder.dept.getText()!=null)
+        {
+            holder.dept.setVisibility(View.VISIBLE);
+        }
 
         /*Picasso.with(context).load(pg.getImage_url2()).into(holder.img, new com.squareup.picasso.Callback() {
 
@@ -74,7 +79,7 @@ public class SchemeAdapter extends RecyclerView.Adapter<SchemeAdapter.MyViewHold
 
         public final View mView;
         public final TextView name;
-        public final ImageView performance;
+        public final WebView performance;
         public final TextView dept;
 
 
@@ -83,7 +88,7 @@ public class SchemeAdapter extends RecyclerView.Adapter<SchemeAdapter.MyViewHold
             mView = itemView;
             name = (TextView) itemView.findViewById(R.id.name);
             dept = (TextView) itemView.findViewById(R.id.dept);
-            performance = (ImageView) itemView.findViewById(R.id.graph);
+            performance = (WebView) itemView.findViewById(R.id.webView);
         }
     }
 }

@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:singleLine="true"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="16dp"
         android:typeface="sans"
         android:textStyle="bold"/>
