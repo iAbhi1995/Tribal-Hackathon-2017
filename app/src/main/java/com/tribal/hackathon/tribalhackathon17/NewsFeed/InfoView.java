@@ -1,6 +1,7 @@
 package com.tribal.hackathon.tribalhackathon17.NewsFeed;
 
 import android.content.Context;
+import android.text.method.LinkMovementMethod;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -50,6 +51,8 @@ public class InfoView {
         titleTxt.setText(mInfo.getTitle());
         captionTxt.setText(mInfo.getCaption());
         timeTxt.setText(mInfo.getTime());
-        Glide.with(mContext).load(mInfo.getImageUrl()).into(imageView);
+        captionTxt.setMovementMethod(LinkMovementMethod.getInstance());
+        if(mInfo.getImageUrl()!=null)
+        {Glide.with(mContext).load(mInfo.getImageUrl()).into(imageView);}
     }
 }
