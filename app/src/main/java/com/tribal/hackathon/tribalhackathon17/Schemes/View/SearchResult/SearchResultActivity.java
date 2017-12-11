@@ -12,11 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.tribal.hackathon.tribalhackathon17.Helper.DataBaseHandler;
 import com.tribal.hackathon.tribalhackathon17.Activity.AccountActivity;
 import com.tribal.hackathon.tribalhackathon17.Activity.MainActivity;
 import com.tribal.hackathon.tribalhackathon17.Activity.Settings;
 import com.tribal.hackathon.tribalhackathon17.Helper.BottomNavigationViewHelper;
+import com.tribal.hackathon.tribalhackathon17.Helper.DataBaseHandler;
 import com.tribal.hackathon.tribalhackathon17.R;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Places;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Schemes;
@@ -111,9 +111,7 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setText("Performance");
         tabLayout.getTabAt(1).setText("Schemes");
-        if (!data.equals("1")) {
-            tabLayout.getTabAt(2).setText("Sub-levels");
-        }
+        tabLayout.getTabAt(2).setText("Sub-levels");
     }
 
     @Override
