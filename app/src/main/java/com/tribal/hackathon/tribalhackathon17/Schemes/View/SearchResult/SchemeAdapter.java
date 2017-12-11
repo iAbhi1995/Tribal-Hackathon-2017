@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.tribal.hackathon.tribalhackathon17.Helper.DataBaseHandler;
 import com.tribal.hackathon.tribalhackathon17.R;
-import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.SchemeData;
+import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Schemes;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class SchemeAdapter extends RecyclerView.Adapter<SchemeAdapter.MyViewHold
 
     private final DataBaseHandler db;
     public Context context;
-    public List<SchemeData> schemeList;
+    public List<Schemes.SchemeData> schemeList;
 
     public SchemeAdapter(Context context) {
         this.context = context;
@@ -34,7 +34,7 @@ public class SchemeAdapter extends RecyclerView.Adapter<SchemeAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        SchemeData data = schemeList.get(position);
+        Schemes.SchemeData data = schemeList.get(position);
         holder.name.setText(data.getName());
         holder.dept.setText(data.getDept_name());
 

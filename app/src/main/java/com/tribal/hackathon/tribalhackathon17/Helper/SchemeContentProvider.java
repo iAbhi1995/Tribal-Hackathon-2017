@@ -23,8 +23,9 @@ public class SchemeContentProvider extends ContentProvider {
         //TODO: Integrate the column names with the suggestion to be shown....
         PROJECTION_MAP.put(SearchManager.SUGGEST_COLUMN_TEXT_1,
                 "name AS " + SearchManager.SUGGEST_COLUMN_TEXT_1);
-        //PROJECTION_MAP.put(SearchManager.SUGGEST_COLUMN_TEXT_2, "name AS " + SearchManager.SUGGEST_COLUMN_TEXT_2);
         PROJECTION_MAP.put(SearchManager.SUGGEST_COLUMN_INTENT_DATA, "_id AS " + SearchManager.SUGGEST_COLUMN_INTENT_DATA);
+        PROJECTION_MAP.put(SearchManager.SUGGEST_COLUMN_INTENT_EXTRA_DATA, "_id AS " + SearchManager.SUGGEST_COLUMN_INTENT_EXTRA_DATA);
+        //PROJECTION_MAP.put(SearchManager.SUGGEST_COLUMN_TEXT_2, "name AS " + SearchManager.SUGGEST_COLUMN_TEXT_2);
     }
 
     private final int SUGGESTIONS = 0;

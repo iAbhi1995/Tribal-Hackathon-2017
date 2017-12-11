@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.tribal.hackathon.tribalhackathon17.Helper.DataBaseHandler;
 import com.tribal.hackathon.tribalhackathon17.R;
-import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Department;
+import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Departments;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Places;
 import com.tribal.hackathon.tribalhackathon17.Schemes.View.SearchResult.SearchResultActivity;
 
@@ -21,8 +21,8 @@ public class PlacesDepartmentAdapter extends RecyclerView.Adapter<PlacesDepartme
 
     private final DataBaseHandler db;
     public Context context;
-    public List<Places> places;
-    public List<Department> departments;
+    public List<Places.Place> places;
+    public List<Departments.Department> departments;
     public int type;
 
     public PlacesDepartmentAdapter(Context context, int type) {
@@ -41,8 +41,8 @@ public class PlacesDepartmentAdapter extends RecyclerView.Adapter<PlacesDepartme
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        Places place = null;
-        Department department = null;
+        Places.Place place = null;
+        Departments.Department department = null;
         if (type == 1)//for places
         {
             place = places.get(position);
@@ -54,16 +54,16 @@ public class PlacesDepartmentAdapter extends RecyclerView.Adapter<PlacesDepartme
             holder.name.setText(department.getName());
         }
 
-        final Places finalPlace = place;
-        final Department finalDepartment = department;
+        final Places.Place finalPlace = place;
+        final Departments.Department finalDepartment = department;
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, SearchResultActivity.class);
                 if (type == 1)
-                    i.putExtra("_id", finalPlace.getId());
+                    i.putExtra("intent_extra_data_key", "P" + finalPlace.getId());
                 else
-                    i.putExtra("_id", finalDepartment.getId());
+                    i.putExtra("intent_extra_data_key", "S" + finalDepartment.getId());
                 context.startActivity(i);
             }
         });
