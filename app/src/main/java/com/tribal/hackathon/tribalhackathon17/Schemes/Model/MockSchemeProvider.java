@@ -64,12 +64,12 @@ public class MockSchemeProvider implements SchemeProvider {
 
     public Schemes getSchemeData() {
         List<Schemes.SchemeData> schemeDatas = new ArrayList<>();
-        schemeDatas.add(new Schemes.SchemeData("1", "Education yojna", "", "", "", "education"));
-        schemeDatas.add(new Schemes.SchemeData("2", "Education yojna2", "", "", "", "education"));
-        schemeDatas.add(new Schemes.SchemeData("3", "Education yojna3", "", "", "", "education"));
-        schemeDatas.add(new Schemes.SchemeData("4", "Education yojna4", "", "", "", "education"));
-        schemeDatas.add(new Schemes.SchemeData("5", "Education yojna5", "", "", "", "education"));
-        schemeDatas.add(new Schemes.SchemeData("6", "Education yojna6", "", "", "", "education"));
+        schemeDatas.add(new Schemes.SchemeData("1", "Education yojna", "", "34554", "567756", "education"));
+        schemeDatas.add(new Schemes.SchemeData("2", "Education yojna2", "", "34533", "63323", "education"));
+        schemeDatas.add(new Schemes.SchemeData("3", "Education yojna3", "", "1234", "4332", "education"));
+        schemeDatas.add(new Schemes.SchemeData("4", "Education yojna4", "", "23424", "34222", "education"));
+        schemeDatas.add(new Schemes.SchemeData("5", "Education yojna5", "", "23421", "24243", "education"));
+        schemeDatas.add(new Schemes.SchemeData("6", "Education yojna6", "", "22340", "23200", "education"));
         schemes = new Schemes(true, schemeDatas);
         return schemes;
     }

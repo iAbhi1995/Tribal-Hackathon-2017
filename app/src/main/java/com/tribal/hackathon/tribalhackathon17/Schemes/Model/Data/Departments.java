@@ -7,7 +7,7 @@ public class Departments {
     private List<Department> departments;
 
     public Departments(List<Department> departments, boolean success) {
-        success = success;
+        this.success = success;
         this.departments = departments;
     }
 

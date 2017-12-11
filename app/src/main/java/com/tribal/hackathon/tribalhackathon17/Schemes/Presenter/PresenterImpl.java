@@ -1,6 +1,7 @@
 package com.tribal.hackathon.tribalhackathon17.Schemes.Presenter;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.tribal.hackathon.tribalhackathon17.Helper.DataBaseHandler;
 import com.tribal.hackathon.tribalhackathon17.R;
@@ -41,13 +42,14 @@ public class PresenterImpl implements SchemePresenter {
 
     @Override
     public void getScheme() {
+        Log.d("abhi", "in presenter");
+
         view.showProgressBar(true);
         provider.getScheme(new SchemeCallback() {
             @Override
             public void onSuccess(Schemes body) {
                 view.showProgressBar(false);
                 if (body.isSuccess()) {
-                    view.showMessage("Success");
                     db.addSchemes(body.getSchemeDatas());
                 } else {
                     view.showMessage(context.getResources().getString(R.string.Connection_Error));
@@ -65,7 +67,6 @@ public class PresenterImpl implements SchemePresenter {
             public void onSuccess(Places body) {
                 view.showProgressBar(false);
                 if (body.isSuccess()) {
-                    view.showMessage("Success");
                     db.addPlaces(body.getPlaces());
                     view.setView();
                 } else {
@@ -83,11 +84,13 @@ public class PresenterImpl implements SchemePresenter {
             @Override
             public void onSuccess(Departments body) {
                 view.showProgressBar(false);
+                Log.d("abhi", body.isSuccess() + "");
                 if (body.isSuccess()) {
-                    view.showMessage("Success");
                     db.addDepartments(body.getDepartmentList());
+                    Log.d("abhi", "Department " + body.getDepartmentList().size());
                     view.setView();
                 } else {
+                    Log.d("abhi", "Department000 ");
                     view.showMessage(context.getResources().getString(R.string.Connection_Error));
                 }
 
@@ -96,6 +99,7 @@ public class PresenterImpl implements SchemePresenter {
             @Override
             public void onFailure() {
                 view.showProgressBar(false);
+                Log.d("abhi", "Department11 ");
             }
         });
         db.addInitialEntries(db.getSchemes(), db.getPlaces());

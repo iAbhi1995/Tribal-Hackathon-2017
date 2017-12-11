@@ -6,10 +6,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import com.tribal.hackathon.tribalhackathon17.Helper.DataBaseHandler;
+import com.tribal.hackathon.tribalhackathon17.Helper.Urls;
 import com.tribal.hackathon.tribalhackathon17.R;
 import com.tribal.hackathon.tribalhackathon17.Schemes.Model.Data.Schemes;
 
@@ -42,6 +45,15 @@ public class SchemeAdapter extends RecyclerView.Adapter<SchemeAdapter.MyViewHold
         {
             holder.dept.setVisibility(View.VISIBLE);
         }
+        WebView myWebView = holder.performance;
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        myWebView.loadUrl(Urls.Base_Url + "/api/graph/" + 560 + "/" + 770);
+        Log.d("abhi", Urls.Base_Url + "/api/graph/" + 567 + "/" + 770);
+        myWebView.setWebViewClient(new WebViewClient() {
+            public void onPageFinished(WebView view, String url) {
+            }
+        });
 
         /*Picasso.with(context).load(pg.getImage_url2()).into(holder.img, new com.squareup.picasso.Callback() {
 

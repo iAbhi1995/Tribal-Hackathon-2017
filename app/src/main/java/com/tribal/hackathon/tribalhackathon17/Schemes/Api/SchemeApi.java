@@ -23,4 +23,5 @@ public interface SchemeApi {
 
     @GET
     Call<SearchResult> getSearchByPlace(@Url String url);
+
 }

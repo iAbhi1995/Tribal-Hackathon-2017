@@ -3,7 +3,6 @@ package com.tribal.hackathon.tribalhackathon17.Schemes.View;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +43,7 @@ public class PlacesDepartmentAdapter extends RecyclerView.Adapter<PlacesDepartme
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         Places.Place place = null;
         Departments.Department department = null;
+        holder.performance.setVisibility(View.GONE);
         if (type == 1)//for places
         {
             place = places.get(position);
